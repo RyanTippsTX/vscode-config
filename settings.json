@@ -1,0 +1,231 @@
+// prettier-ignore
+
+// terminology https://code.visualstudio.com/api/extension-capabilities/extending-workbench
+// docs https://code.visualstudio.com/docs/getstarted/settings
+
+{
+  // general editor & window options
+  "editor.mouseWheelScrollSensitivity": 0.1,
+  "editor.emptySelectionClipboard": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.acceptSuggestionOnEnter": "off",
+  "diffEditor.codeLens": true,
+  "workbench.editor.closeOnFileDelete": true,
+  "editor.accessibilitySupport": "off",
+  "editor.smoothScrolling": true,
+  "workbench.startupEditor": "none",
+  "workbench.editor.labelFormat": "medium", // "short" | "medium" | "long"
+
+  // bracket pairs
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+
+  // Text editor
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.wordWrap": "on",
+  "editor.renderWhitespace": "all",
+
+  // linting & formatting
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave":{
+    "source.organizeImports.biome": "explicit"
+  },
+  
+  // temp enabled for express project
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "editor.defaultFormatter": "biomejs.biome",
+  
+  // temp disabled for express project
+  // "[javascript]": { "editor.defaultFormatter": "biomejs.biome" },
+  // "[javascriptreact]": { "editor.defaultFormatter": "biomejs.biome" },
+  // "[typescript]": { "editor.defaultFormatter": "biomejs.biome" },
+  // "[typescriptreact]": { "editor.defaultFormatter": "biomejs.biome" },
+  // "[json]": { "editor.defaultFormatter": "biomejs.biome" },
+
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "files.associations": {
+    "*.ejs": "html"
+  },
+
+  // hover delay
+  // "workbench.hover.delay": 0,
+  "editor.hover.delay": 40,
+  "workbench.sash.hoverDelay": 0,
+  // "editor.hover.sticky": false, // hover disappears when mouse moves
+
+  // security
+  "security.workspace.trust.untrustedFiles": "open",
+  "security.workspace.trust.banner": "never",
+
+  // updates
+  "update.mode": "none",
+  "extensions.autoUpdate": false,
+  "extensions.autoCheckUpdates": false,
+
+  // disable big brother
+  "workbench.enableExperiments": false,
+  "telemetry.telemetryLevel": "off",
+  "terminal.integrated.drawBoldTextInBrightColors": false,
+  "terminal.integrated.enablePersistentSessions": false,
+  "terminal.integrated.enableFileLinks": "off",
+  "terminal.integrated.showLinkHover": false,
+  "terminal.integrated.profiles.osx": {
+    "zsh-brew": {
+      "path": "/usr/local/bin/zsh",
+      "args": ["-l"]
+    }
+  },
+  // "terminal.integrated.defaultProfile.osx": "zsh-brew",
+  "terminal.integrated.minimumContrastRatio": 1, // fixes colors
+
+  // Prettier
+  "prettier.printWidth": 120,
+
+  // Quokka
+  "quokka.startViewStatusBar": true,
+
+  // Theme 🎨
+  "workbench.colorTheme": "Spooky Scary Color Theme",
+
+  // Powermode extensions for Spooky Scary Color Theme
+  "powermode.enabled": true,
+  "powermode.explosions.customExplosions": [
+    // direct path does not work, gif I uploaded to giphy
+    "https://media.giphy.com/media/WngnWxxekMn8DIqmwQ/giphy.gif"
+  ],
+  // this allows the little ghost friend to pop up above your line so you can see what you're typing!
+  "powermode.explosions.customCss": {
+    "top": "-30px",
+    "z-index": 1,
+    "height": "70px",
+    "width": "70px"
+  },
+  // stops the editor from shaking on each type
+  "powermode.shake.enabled": false,
+  // hides the combometer and timer
+  "powermode.combo.timerEnabled": "hide",
+  "powermode.combo.counterEnabled": "hide",
+  // minimizes how often there is an appearance from our little ghost friend!
+  "powermode.explosions.maxExplosions": 1,
+  // how many key hits until our ghost friend comes out to haunt us! :scream:
+  "powermode.explosions.frequency": 20,
+
+  //-------- Code Spell Checker Configuration --------
+  // https://github.com/streetsidesoftware/vscode-spell-checker#vs-code-configuration-settings
+  "cSpell.enabled": true,
+  "cSpell.language": "en-US",
+  "cSpell.enabledLanguageIds": [
+    "javascript",
+    "javascriptreact",
+    "markdown",
+    "plaintext",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "css",
+    "json",
+    "jsonc",
+    "yml",
+    "yaml",
+    "mdx",
+    "md",
+    "sql"
+  ],
+
+  // Display the spell checker status on the status bar.
+  "cSpell.showStatus": true,
+
+  // Enable / Disable compound words like 'errormessage'
+  "cSpell.allowCompoundWords": true,
+
+  // Words to be ignored and not suggested.
+  "cSpell.ignoreWords": ["pwned", "TLDR"],
+
+  // User words to add to dictionary.  Should only be in the user settings.
+  "cSpell.userWords": [
+    "biomejs",
+    "dont",
+    "esbenp",
+    "giphy",
+    "navigations",
+    "pwned",
+    "Quokka",
+    "relurl",
+    "Roboto",
+    "TLDR",
+    "upserted",
+    "Upserts",
+  ],
+
+  // Specify paths/files to ignore.
+  "cSpell.ignorePaths": [
+    "node_modules", // this will ignore anything the node_modules directory
+    "**/node_modules", // the same for this one
+    "**/node_modules/**", // the same for this one
+    "node_modules/**", // Doesn't currently work due to how the current working directory is determined.
+    "vscode-extension", //
+    ".git", // Ignore the .git directory
+    "*.dll", // Ignore all .dll files.
+    "**/*.dll" // Ignore all .dll files
+  ],
+
+  // ignore files from .gitignore
+  "cSpell.useGitignore": true,
+
+  // only spell check comments, ignore all other lines
+  "cSpell.includeRegExpList": [
+    // single line comments
+    "\\/\\/.*$",
+    // multi line comments
+    "\\/\\*[\\s\\S]*?\\*\\/"
+    // all comments
+    // "(\\/\\*[\\s\\S]*?\\*\\/|\\/\\/.*$)",
+  ],
+
+  "cSpell.patterns": [
+    {
+      "name": "comment-single-line",
+      "pattern": "/#.*/g"
+    },
+    {
+      "name": "comment-multi-line",
+      "pattern": "/(?:\\/\\*[\\s\\S]*?\\*\\/)/g"
+    }
+  ],
+
+  // GitHub Copilot 🤖
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": false,
+    "scminput": false,
+    "yaml": true
+  },
+
+  // make CSS shut up about tailwind stuff
+  "css.lint.unknownAtRules": "ignore",
+
+  // file drag and drop
+  "explorer.confirmDragAndDrop": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  // gitlens 🔍
+  "gitlens.codeLens.scopes": ["document", "containers"],
+  "gitlens.statusBar.enabled": false,
+  "gitlens.hovers.annotations.over": "annotation",
+  "gitlens.hovers.annotations.enabled": false,
+
+  //  ------ Unsorted changes below this line --------------
+  "dont-delete-me": "🙂",
+  "window.zoomLevel": 1,
+  "settingsSync.keybindingsPerPlatform": false,
+  "accessibility.signals.terminalBell": {
+    "sound": "on"
+  },
+  "terminal.integrated.enableVisualBell": true,
+  "eslint.format.enable": true,
+  "editor.stickyScroll.enabled": false
+}
